@@ -1,25 +1,32 @@
 const path = require('path');
 
 module.exports = ({ env }) => {
+  // Debug logging
+  console.log('=== DATABASE CONFIG DEBUG ===');
+  console.log('DATABASE_CLIENT:', env('DATABASE_CLIENT'));
+  console.log('DATABASE_URL:', env('DATABASE_URL') ? 'SET' : 'NOT SET');
+  console.log('NODE_ENV:', env('NODE_ENV'));
+  console.log('============================');
+
   const client = env('DATABASE_CLIENT', 'sqlite');
+  
+  if (!client) {
+    console.error('DATABASE_CLIENT is undefined!');
+    throw new Error('DATABASE_CLIENT environment variable is required');
+  }
 
   const connections = {
     postgres: {
       connection: {
         connectionString: env('DATABASE_URL'),
-        host: env('DATABASE_HOST', 'localhost'),
-        port: env.int('DATABASE_PORT', 5432),
-        database: env('DATABASE_NAME', 'strapi'),
-        user: env('DATABASE_USERNAME', 'strapi'),
-        password: env('DATABASE_PASSWORD', 'strapi'),
-        ssl: env.bool('DATABASE_SSL', false),
-        schema: env('DATABASE_SCHEMA', 'public'),
+        ssl: env.bool('DATABASE_SSL', false) && {
+          rejectUnauthorized: env.bool('DATABASE_SSL_SELF', false),
+        },
       },
       pool: {
         min: env.int('DATABASE_POOL_MIN', 2),
         max: env.int('DATABASE_POOL_MAX', 10)
       },
-      acquireConnectionTimeout: env.int('DATABASE_CONNECTION_TIMEOUT', 60000),
     },
     sqlite: {
       connection: {
@@ -28,6 +35,9 @@ module.exports = ({ env }) => {
       useNullAsDefault: true,
     },
   };
+
+  console.log('Selected client:', client);
+  console.log('Available connections:', Object.keys(connections));
 
   return {
     connection: connections[client],
