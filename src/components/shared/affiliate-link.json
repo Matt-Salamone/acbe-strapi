@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_shared_affiliate_links",
+  "info": {
+    "displayName": "Affiliate Link",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "linkText": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "disclosureText": {
+      "type": "text",
+      "required": true
+    },
+    "trackingCode": {
+      "type": "string"
+    },
+    "clickCount": {
+      "type": "integer",
+      "default": 0
+    }
+  },
+  "config": {}
+}
