@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_shared_testimonials",
+  "info": {
+    "displayName": "Testimonial",
+    "icon": "emotionHappy"
+  },
+  "options": {},
+  "attributes": {
+    "quote": {
+      "type": "text",
+      "maxLength": 200,
+      "required": true
+    },
+    "authorName": {
+      "type": "string",
+      "maxLength": 50,
+      "required": true
+    },
+    "authorTitle": {
+      "type": "string",
+      "maxLength": 100
+    },
+    "authorImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

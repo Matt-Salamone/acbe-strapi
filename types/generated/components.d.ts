@@ -36,11 +36,37 @@ export interface SharedSeo extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedTestimonial extends Struct.ComponentSchema {
+  collectionName: 'components_shared_testimonials';
+  info: {
+    displayName: 'Testimonial';
+    icon: 'emotionHappy';
+  };
+  attributes: {
+    authorImage: Schema.Attribute.Media<'images'>;
+    authorName: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 50;
+      }>;
+    authorTitle: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }>;
+    quote: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }>;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'shared.affiliate-link': SharedAffiliateLink;
       'shared.seo': SharedSeo;
+      'shared.testimonial': SharedTestimonial;
     }
   }
 }

@@ -1,0 +1,117 @@
+{
+  "kind": "singleType",
+  "collectionName": "homepages",
+  "info": {
+    "singularName": "homepage",
+    "pluralName": "homepages",
+    "displayName": "Homepage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heroTitle": {
+      "type": "string",
+      "default": "Make AI Easy to Understand",
+      "maxLength": 120,
+      "required": true
+    },
+    "heroSubtitle": {
+      "type": "text",
+      "default": "Beginner-friendly guides, tools, and insights to help you navigate the world of artificial intelligence with confidence.",
+      "maxLength": 200
+    },
+    "heroCtaText": {
+      "type": "string",
+      "default": "Start Learning",
+      "maxLength": 30
+    },
+    "heroCtaLink": {
+      "type": "string",
+      "default": "/articles"
+    },
+    "heroBackgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "featuredSectionTitle": {
+      "type": "string",
+      "default": "Featured Content",
+      "maxLength": 50
+    },
+    "featuredArticles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article"
+    },
+    "categoriesTitle": {
+      "type": "string",
+      "default": "Explore by Category",
+      "maxLength": 50
+    },
+    "featuredCategories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category"
+    },
+    "newToAiTitle": {
+      "type": "string",
+      "default": "New to AI?",
+      "maxLength": 50
+    },
+    "newToAiDescription": {
+      "type": "text",
+      "default": "Start with our beginner-friendly guide that breaks down AI concepts in simple terms.",
+      "maxLength": 300
+    },
+    "newToAiCtaText": {
+      "type": "string",
+      "default": "Begin Your Journey",
+      "maxLength": 30
+    },
+    "newToAiCtaLink": {
+      "type": "string"
+    },
+    "newToAiImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "newsletterTitle": {
+      "type": "string",
+      "default": "Stay Updated",
+      "maxLength": 50
+    },
+    "newsletterDescription": {
+      "type": "text",
+      "default": "Get weekly AI insights and beginner tips delivered to your inbox.",
+      "maxLength": 200
+    },
+    "newsletterPlaceholder": {
+      "type": "string",
+      "default": "Enter your email",
+      "maxLength": 50
+    },
+    "subscriberCount": {
+      "type": "integer"
+    },
+    "testimonials": {
+      "type": "component",
+      "component": "shared.testimonial",
+      "repeatable": true,
+      "min": 0,
+      "max": 3
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    }
+  }
+}
