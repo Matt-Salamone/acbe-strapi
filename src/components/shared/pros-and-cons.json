@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_shared_pros_and_cons",
+  "info": {
+    "displayName": "Pros and Cons",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "pros": {
+      "type": "component",
+      "component": "shared.cons",
+      "repeatable": true
+    },
+    "cons": {
+      "type": "component",
+      "component": "shared.cons",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

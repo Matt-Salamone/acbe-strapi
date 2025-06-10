@@ -15,6 +15,29 @@ export interface SharedAffiliateLink extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedCons extends Struct.ComponentSchema {
+  collectionName: 'components_shared_cons';
+  info: {
+    displayName: 'Points';
+    icon: 'bulletList';
+  };
+  attributes: {
+    point: Schema.Attribute.String;
+  };
+}
+
+export interface SharedProsAndCons extends Struct.ComponentSchema {
+  collectionName: 'components_shared_pros_and_cons';
+  info: {
+    displayName: 'Pros and Cons';
+    icon: 'bulletList';
+  };
+  attributes: {
+    cons: Schema.Attribute.Component<'shared.cons', true>;
+    pros: Schema.Attribute.Component<'shared.cons', true>;
+  };
+}
+
 export interface SharedSeo extends Struct.ComponentSchema {
   collectionName: 'components_shared_seos';
   info: {
@@ -65,6 +88,8 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'shared.affiliate-link': SharedAffiliateLink;
+      'shared.cons': SharedCons;
+      'shared.pros-and-cons': SharedProsAndCons;
       'shared.seo': SharedSeo;
       'shared.testimonial': SharedTestimonial;
     }

@@ -702,7 +702,7 @@ export interface ApiReviewReview extends Struct.CollectionTypeSchema {
       >;
     priceRange: Schema.Attribute.String;
     productName: Schema.Attribute.String & Schema.Attribute.Required;
-    prosAndCons: Schema.Attribute.JSON;
+    prosAndCons: Schema.Attribute.Component<'shared.pros-and-cons', false>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;

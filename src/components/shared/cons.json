@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_shared_cons",
+  "info": {
+    "displayName": "Points",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "point": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
